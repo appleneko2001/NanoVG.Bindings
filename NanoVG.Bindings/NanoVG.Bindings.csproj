@@ -5,8 +5,14 @@
         <Description>Pure NanoVG binding for DotNET</Description>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>NanoVG</RootNamespace>
-        <TargetFramework>netstandard1.1</TargetFramework>
         <PackageId>NanoVG.Bindings</PackageId>
+        <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
+        <Version>0.9.0</Version>
+        <Authors>github@appleneko2001</Authors>
+        <PackageProjectUrl>https://github.com/appleneko2001/NanoVG.Bindings</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/appleneko2001/NanoVG.Bindings/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/appleneko2001/NanoVG.Bindings</RepositoryUrl>
+        <PackageTags>nanovg bindings graphics vector</PackageTags>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
