@@ -7,6 +7,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
+packages/
+
+# TODO: not ready yet
+NanoVgSharp/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -40,6 +45,7 @@ ScaffoldingReadMe.txt
 ~$*
 *~
 CodeCoverage/
+.idea/
 
 # MSBuild Binary and Structured Log
 *.binlog

@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard1.1</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AssemblyName>NanoVG.Demo</AssemblyName>
+        <RootNamespace>NanoVG.Demo</RootNamespace>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NanoVG.Bindings\NanoVG.Bindings.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="assets\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="assets\images\image1.jpg" />
+      <AdditionalFiles Include="assets\images\image1.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image2.jpg" />
+      <AdditionalFiles Include="assets\images\image2.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image3.jpg" />
+      <AdditionalFiles Include="assets\images\image3.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image4.jpg" />
+      <AdditionalFiles Include="assets\images\image4.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image5.jpg" />
+      <AdditionalFiles Include="assets\images\image5.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image6.jpg" />
+      <AdditionalFiles Include="assets\images\image6.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image7.jpg" />
+      <AdditionalFiles Include="assets\images\image7.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image8.jpg" />
+      <AdditionalFiles Include="assets\images\image8.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image9.jpg" />
+      <AdditionalFiles Include="assets\images\image9.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image10.jpg" />
+      <AdditionalFiles Include="assets\images\image10.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image11.jpg" />
+      <AdditionalFiles Include="assets\images\image11.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images\image12.jpg" />
+      <AdditionalFiles Include="assets\images\image12.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\entypo.ttf" />
+      <AdditionalFiles Include="assets\entypo.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\images.txt" />
+      <AdditionalFiles Include="assets\images.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\LICENSE_OFL.txt" />
+      <AdditionalFiles Include="assets\LICENSE_OFL.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\NotoEmoji-Regular.ttf" />
+      <AdditionalFiles Include="assets\NotoEmoji-Regular.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\Roboto-Bold.ttf" />
+      <AdditionalFiles Include="assets\Roboto-Bold.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\Roboto-Light.ttf" />
+      <AdditionalFiles Include="assets\Roboto-Light.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\Roboto-Regular.ttf" />
+      <AdditionalFiles Include="assets\Roboto-Regular.ttf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="assets\SourceHanSansCN-Regular.ttf" />
+    </ItemGroup>
+
+</Project>
