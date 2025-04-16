@@ -54,6 +54,7 @@ public unsafe partial class Nvg
         private delegate void SkewYDelegate(NvgContext ctx, float angle);
         private delegate void ScaleDelegate(NvgContext ctx, float x, float y);
         private delegate void CurrentTransformDelegate(NvgContext ctx, float* xform);
+        private delegate void CurrentTransformMatDelegate(NvgContext ctx, out Matrix3x2 mat);
         private delegate void TransformIdentityDelegate(float* dst);
         private delegate void TransformTranslateDelegate(float* dst, float tx, float ty);
         private delegate void TransformScaleDelegate(float* dst, float sx, float sy);

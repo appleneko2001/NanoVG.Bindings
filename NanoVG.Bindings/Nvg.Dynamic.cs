@@ -64,6 +64,7 @@ public static partial class Nvg
     private static SkewYDelegate? _skewY;
     private static ScaleDelegate? _scale;
     private static CurrentTransformDelegate? _currentTransform;
+    private static CurrentTransformMatDelegate? _currentTransformMat;
     private static TransformIdentityDelegate? _transformIdentity;
     private static TransformTranslateDelegate? _transformTranslate;
     private static TransformScaleDelegate? _transformScale;
@@ -194,6 +195,7 @@ public static partial class Nvg
         _skewY = GetFunction<SkewYDelegate>(FuncPrefix + nameof(SkewY));
         _scale = GetFunction<ScaleDelegate>(FuncPrefix + nameof(Scale));
         _currentTransform = GetFunction<CurrentTransformDelegate>(FuncPrefix + nameof(CurrentTransform));
+        _currentTransformMat = GetFunction<CurrentTransformMatDelegate>(FuncPrefix + nameof(CurrentTransform));
         _transformIdentity = GetFunction<TransformIdentityDelegate>(FuncPrefix + nameof(TransformIdentity));
         _transformTranslate = GetFunction<TransformTranslateDelegate>(FuncPrefix + nameof(TransformTranslate));
         _transformScale = GetFunction<TransformScaleDelegate>(FuncPrefix + nameof(TransformScale));
@@ -326,6 +328,7 @@ public static partial class Nvg
         _skewY = null;
         _scale = null;
         _currentTransform = null;
+        _currentTransformMat = null;
         _transformIdentity = null;
         _transformTranslate = null;
         _transformScale = null;
