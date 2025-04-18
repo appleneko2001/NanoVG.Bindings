@@ -37,7 +37,7 @@ public unsafe partial class Nvg
         private delegate void ShapeAntiAliasDelegate(NvgContext ctx, int enabled);
         private delegate void StrokeColorDelegate(NvgContext ctx, Vector4 color);
         private delegate void StrokePaintDelegate(NvgContext ctx, NvgPaint paint);
-        private delegate void FillColorDelegate(NvgContext ctx, Vector4 color);
+        private delegate void FillColorDelegate(NvgContext ctx, NvgColor color);
         private delegate void FillPaintDelegate(NvgContext ctx, NvgPaint paint);
         private delegate void MiterLimitDelegate(NvgContext ctx, float limit);
         private delegate void StrokeWidthDelegate(NvgContext ctx, float size);

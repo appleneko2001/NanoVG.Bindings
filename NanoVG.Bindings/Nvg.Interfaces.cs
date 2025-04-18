@@ -71,7 +71,13 @@ public unsafe partial class Nvg
 
     public static void StrokePaint(this NvgContext ctx, NvgPaint paint) => _strokePaint!(ctx, paint);
 
-    public static void FillColor(this NvgContext ctx, Vector4 color) => _fillColor!(ctx, color);
+    public static void FillColor(this NvgContext ctx, Vector4 color) => _fillColor!(ctx, new NvgColor
+    {
+        r = color.X,
+        g = color.Y,
+        b = color.Z,
+        a = color.W
+    });
 
     public static void FillPaint(this NvgContext ctx, NvgPaint paint) => _fillPaint!(ctx, paint);
 

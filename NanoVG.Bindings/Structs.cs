@@ -183,6 +183,16 @@ public unsafe struct NvgPath
     public int Convex;
 }
 
+// used to beat the strange issue with bindings
+[StructLayout(LayoutKind.Sequential)]
+public struct NvgColor
+{
+    public float r;
+    public float g;
+    public float b;
+    public float a;
+}
+
 public abstract unsafe class NvgParameters
 {
     public abstract int RenderCreate(IntPtr UPtr);
