@@ -24,7 +24,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release NanoVG.Bindings
     - name: Pack
-      run: dotnet pack --configuration Release -p:PatchNumber=$GITHUB_RUN_NUMBER-pre NanoVG.Bindings
+      run: dotnet pack --configuration Release -p:PatchNumber=$GITHUB_RUN_NUMBER-alpha NanoVG.Bindings
     - name: Move package to artifacts
       run: |
         mkdir artifacts

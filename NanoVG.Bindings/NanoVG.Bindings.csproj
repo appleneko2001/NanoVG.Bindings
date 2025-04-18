@@ -15,6 +15,11 @@
         <PackageTags>nanovg bindings graphics vector</PackageTags>
     </PropertyGroup>
 
+    <!-- For nightly versions -->
+    <PropertyGroup>
+        <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
+    </PropertyGroup>
+
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <DefineConstants>TRACE;NVG_DYNAMIC_INTEROP</DefineConstants>
     </PropertyGroup>
