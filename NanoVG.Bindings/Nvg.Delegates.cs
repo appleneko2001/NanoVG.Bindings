@@ -35,7 +35,7 @@ public unsafe partial class Nvg
         private delegate void RestoreDelegate(NvgContext ctx);
         private delegate void ResetDelegate(NvgContext ctx);
         private delegate void ShapeAntiAliasDelegate(NvgContext ctx, int enabled);
-        private delegate void StrokeColorDelegate(NvgContext ctx, Vector4 color);
+        private delegate void StrokeColorDelegate(NvgContext ctx, NvgColor color);
         private delegate void StrokePaintDelegate(NvgContext ctx, NvgPaint paint);
         private delegate void FillColorDelegate(NvgContext ctx, NvgColor color);
         private delegate void FillPaintDelegate(NvgContext ctx, NvgPaint paint);
@@ -74,9 +74,9 @@ public unsafe partial class Nvg
         private delegate void ImageSizeDelegate(NvgContext ctx, int image, int* w, int* h);
         private delegate void ImageSizeOutDelegate(NvgContext ctx, int image, out int w, out int h);
         private delegate void DeleteImageDelegate(NvgContext ctx, int image);
-        private delegate NvgPaint LinearGradientDelegate(NvgContext ctx, float sx, float sy, float ex, float ey, Vector4 iCol, Vector4 oCol);
-        private delegate NvgPaint BoxGradientDelegate(NvgContext ctx, float x, float y, float w, float h, float r, float f, Vector4 iCol, Vector4 oCol);
-        private delegate NvgPaint RadialGradientDelegate(NvgContext ctx, float cx, float cy, float inR, float outR, Vector4 iCol, Vector4 oCol);
+        private delegate NvgPaint LinearGradientDelegate(NvgContext ctx, float sx, float sy, float ex, float ey, NvgColor iCol, NvgColor oCol);
+        private delegate NvgPaint BoxGradientDelegate(NvgContext ctx, float x, float y, float w, float h, float r, float f, NvgColor iCol, NvgColor oCol);
+        private delegate NvgPaint RadialGradientDelegate(NvgContext ctx, float cx, float cy, float inR, float outR, NvgColor iCol, NvgColor oCol);
         private delegate NvgPaint ImagePatternDelegate(NvgContext ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha);
         private delegate void ScissorDelegate(NvgContext ctx, float x, float y, float w, float h);
         private delegate void IntersectScissorDelegate(NvgContext ctx, float x, float y, float w, float h);

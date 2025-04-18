@@ -67,17 +67,11 @@ public unsafe partial class Nvg
 
     public static void ShapeAntiAlias(this NvgContext ctx, int enabled) => _shapeAntiAlias!(ctx, enabled);
 
-    public static void StrokeColor(this NvgContext ctx, Vector4 color) => _strokeColor!(ctx, color);
+    public static void StrokeColor(this NvgContext ctx, Vector4 color) => _strokeColor!(ctx, ToNvgColor(color));
 
     public static void StrokePaint(this NvgContext ctx, NvgPaint paint) => _strokePaint!(ctx, paint);
 
-    public static void FillColor(this NvgContext ctx, Vector4 color) => _fillColor!(ctx, new NvgColor
-    {
-        r = color.X,
-        g = color.Y,
-        b = color.Z,
-        a = color.W
-    });
+    public static void FillColor(this NvgContext ctx, Vector4 color) => _fillColor!(ctx, ToNvgColor(color));
 
     public static void FillPaint(this NvgContext ctx, NvgPaint paint) => _fillPaint!(ctx, paint);
 
@@ -156,13 +150,13 @@ public unsafe partial class Nvg
     public static void DeleteImage(this NvgContext ctx, int image) => _deleteImage!(ctx, image);
 
     public static NvgPaint LinearGradient(this NvgContext ctx, float sx, float sy, float ex, float ey, Vector4 icol,
-        Vector4 ocol) => _linearGradient!(ctx, sx, sy, ex, ey, icol, ocol);
+        Vector4 ocol) => _linearGradient!(ctx, sx, sy, ex, ey,  ToNvgColor(icol),  ToNvgColor(ocol));
 
     public static NvgPaint BoxGradient(this NvgContext ctx, float x, float y, float w, float h, float r, float f,
-        Vector4 icol, Vector4 ocol) => _boxGradient!(ctx, x, y, w, h, r, f, icol, ocol);
+        Vector4 icol, Vector4 ocol) => _boxGradient!(ctx, x, y, w, h, r, f, ToNvgColor(icol),  ToNvgColor(ocol));
 
     public static NvgPaint RadialGradient(this NvgContext ctx, float cx, float cy, float inr, float outr, Vector4 icol,
-        Vector4 ocol) => _radialGradient!(ctx, cx, cy, inr, outr, icol, ocol);
+        Vector4 ocol) => _radialGradient!(ctx, cx, cy, inr, outr, ToNvgColor(icol),  ToNvgColor(ocol));
 
     public static NvgPaint ImagePattern(this NvgContext ctx, float ox, float oy, float ex, float ey, float angle,
         int image, float alpha) => _imagePattern!(ctx, ox, oy, ex, ey, angle, image, alpha);
@@ -291,4 +285,16 @@ public unsafe partial class Nvg
     public static void TextBoxBounds(this NvgContext ctx, float x, float y, float breakRowWidth, string str,
         IntPtr endOfStr, ref Vector4 bounds) =>
         _textBoxBoundsString!(ctx, x, y, breakRowWidth, str, endOfStr, ref bounds);
+    
+    
+    private static NvgColor ToNvgColor(Vector4 color)
+    {
+        return new NvgColor
+        {
+            r = color.X,
+            g = color.Y,
+            b = color.Z,
+            a = color.W
+        };
+    }
 }

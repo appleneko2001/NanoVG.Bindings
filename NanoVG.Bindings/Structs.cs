@@ -185,7 +185,7 @@ public unsafe struct NvgPath
 
 // used to beat the strange issue with bindings
 [StructLayout(LayoutKind.Sequential)]
-public struct NvgColor
+internal struct NvgColor
 {
     public float r;
     public float g;
