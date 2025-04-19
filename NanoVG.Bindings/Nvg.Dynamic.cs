@@ -10,7 +10,7 @@ public static partial class Nvg
 {
     private const string FuncPrefix = "nvg";
     public const string LibNamePrefix = "libNanoVG";
-    private const string LibName = $"{LibNamePrefix}_GLES";
+    public const string LibName = $"{LibNamePrefix}_GLES";
     internal const CallingConvention CConv = CallingConvention.Cdecl;
 
     private static ILibraryLoader? _loader;
@@ -135,6 +135,12 @@ public static partial class Nvg
     private static TextBoxBoundsVector4Delegate? _textBoxBoundsVector4;
     private static TextBoxBoundsStringDelegate? _textBoxBoundsString;
 
+    /// <summary>
+    /// Initialise API bindings, also load NanoVG library to the RAM for further use. Use <see cref="UnloadLibrary"/> if you have done everything with NanoVG.
+    /// </summary>
+    /// <param name="loader">library loader with supported OS implementation.</param>
+    /// <param name="libName">the library binaries file name, usually it's something like "libnanovg" or "libNanoVG_GLES3" if you are using my NanoVG fork. Leaving it null or empty will let it use constant value <see cref="LibName"/></param>
+    /// <returns>Library status, returns "true" if the NanoVG library have been loaded successfully and regardless their API capability are full or not. You will see unsupported API that library does not support in Console output and callback <see cref="FailFunctionLoadCallback"/>.</returns>
     public static bool LoadLibrary(ILibraryLoader loader, string? libName = null)
     {
         _loader = loader;
@@ -274,6 +280,9 @@ public static partial class Nvg
 
     private static bool IsHandleEmpty(IntPtr? inst) => inst.HasValue == false || inst.Value == IntPtr.Zero;
 
+    /// <summary>
+    /// Unload NanoVG library, don't forget recycle the context first.
+    /// </summary>
     public static void UnloadLibrary()
     {
         if (IsHandleEmpty(_libHandle))
@@ -439,6 +448,9 @@ public static partial class Nvg
         ptr = handle!.Value;
     }
 
+    /// <summary>
+    /// This callback will be invoked if there have some API bindings are failed while during <see cref="LoadLibrary"/>, it gives you a function name that is not supported by loading NanoVG library.
+    /// </summary>
     public static Action<string>? FailFunctionLoadCallback;
 
     private static void FreeLibraryPrivate()

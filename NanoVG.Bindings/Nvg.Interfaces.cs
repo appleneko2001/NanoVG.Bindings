@@ -4,14 +4,35 @@ using System.Runtime.InteropServices;
 
 namespace NanoVG;
 
+/// <summary>
+/// Common NanoVG API command set. Use <see cref="LoadLibrary"/> first to load API bindings.
+/// </summary>
 public unsafe partial class Nvg
 {
+    /// <summary>
+    /// Create a NanoVG context that uses OpenGLES 3.0 backend. Requires your NanoVG binary have enabled such capability to use. Don't forget use <see cref="DeleteGLES3"/> to recycle.
+    /// </summary>
+    /// <param name="flags">Enabled capability in such context</param>
+    /// <returns>A non-null context instance for further use, otherwise if encounter an error while initialising.</returns>
     public static NvgContext? CreateGLES3(NvgCreateFlags flags) => _createGLES3!((int)flags);
 
+    /// <summary>
+    /// Create a NanoVG context that uses OpenGLES 2.0 backend. Requires your NanoVG binary have enabled such capability to use. Don't forget use <see cref="DeleteGLES2"/> to recycle.
+    /// </summary>
+    /// <param name="flags">Enabled capability in such context</param>
+    /// <returns>A non-null context instance for further use, otherwise if encounter an error while initialising.</returns>
     public static NvgContext? CreateGLES2(NvgCreateFlags flags) => _createGLES2!((int)flags);
 
+    /// <summary>
+    /// Recycle a NanoVG context that no more for use. Make sure its OpenGLES 2.0 backend context, which created by <see cref="CreateGLES2"/>
+    /// </summary>
+    /// <param name="ctx">A non-null context</param>
     public static void DeleteGLES2(NvgContext ctx) => _deleteGLES2!(ctx);
 
+    /// <summary>
+    /// Recycle a NanoVG context that no more for use. Make sure its OpenGLES 3.0 backend context, which created by <see cref="CreateGLES3"/>
+    /// </summary>
+    /// <param name="ctx">A non-null context</param>
     public static void DeleteGLES3(NvgContext ctx) => _deleteGLES3!(ctx);
 
     public static NvgContext CreateInternal(IntPtr @params) => _createInternal!(@params);

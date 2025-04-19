@@ -57,26 +57,55 @@ public struct NvgContext {
 [StructLayout(LayoutKind.Sequential)]//, Pack = 1
 public struct NvgTextRow {
     //[MarshalAs(UnmanagedType.LPStr)]
-    public IntPtr start;	// Pointer to the input text where the row starts.
+    /// <summary>
+    /// Pointer to the input text where the row starts.
+    /// </summary>
+    public IntPtr start;
     
     //[MarshalAs(UnmanagedType.LPStr)]
-    public IntPtr end;	// Pointer to the input text where the row ends (one past the last character).
+    /// <summary>
+    /// Pointer to the input text where the row ends (one past the last character).
+    /// </summary>
+    public IntPtr end;
     
     //[MarshalAs(UnmanagedType.LPStr)]
-    public IntPtr next;	// Pointer to the beginning of the next row.
-    public float width;		// Logical width of the row.
-    public float minx;
-    public float maxx;	// Actual bounds of the row. Logical with and bounds can differ because of kerning and some parts over extending.
+    /// <summary>
+    /// Pointer to the beginning of the next row.
+    /// </summary>
+    public IntPtr next;	
+    
+    /// <summary>
+    /// Logical width of the row.
+    /// </summary>
+    public float width;
+    
+    /// <summary>
+    /// Actual bounds of the row. Logical with and bounds can differ because of kerning and some parts over extending.
+    /// </summary>
+    public float minx, maxx;
 };
 
 // TODO: Experimental
 public struct NVGglyphPosition {
     //[MarshalAs(UnmanagedType.LPStr)]
-    public IntPtr str;	// Position of the glyph in the input string.
-    public float x;			// The x-coordinate of the logical glyph position.
-    public float minx, maxx;	// The bounds of the glyph shape.
+    
+    /// <summary>
+    /// Position of the glyph in the input string.
+    /// </summary>
+    public IntPtr str;
+    
+    /// <summary>
+    /// The x-coordinate of the logical glyph position.
+    /// </summary>
+    public float x;
+    
+    /// <summary>
+    /// The bounds of the glyph shape.
+    /// </summary>
+    public float minx, maxx;
 };
 
+// TODO: no idea why this is not working
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 unsafe struct NvgParams
 {

@@ -2,11 +2,26 @@ using System;
 
 namespace NanoVG;
 
+/// <summary>
+/// Context creation options
+/// </summary>
 [Flags]
 public enum NvgCreateFlags : int
 {
+    /// <summary>
+    /// Make the side of shape rasterisation smoother, slightly impact the performance.   
+    /// </summary>
     Antialias = 1 << 0,
+    
+    /// <summary>
+    /// Flag indicating if strokes should be drawn using stencil buffer. The rendering will be a little
+    /// slower, but path overlaps (i.e. self-intersecting or sharp turns) will be drawn just once.
+    /// </summary>
     StencilStrokes = 1 << 1,
+    
+    /// <summary>
+    /// Enable debugging output in NanoVG library
+    /// </summary>
     Debug = 1 << 2
 }
 
@@ -104,6 +119,13 @@ public enum NvgLineCap : int
 
 public enum NvgWinding : int
 {
-    CCW = 1, // Winding for solid shapes
-    CW = 2, // Winding for holes
+    /// <summary>
+    /// Winding for solid shapes
+    /// </summary>
+    CCW = 1,
+    
+    /// <summary>
+    /// Winding for holes
+    /// </summary>
+    CW = 2,
 }
