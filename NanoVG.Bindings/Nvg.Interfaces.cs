@@ -18,13 +18,13 @@ public unsafe partial class Nvg
 
     public static void DeleteInternal(this NvgContext ctx) => _deleteInternal!(ctx);
 
-    public static float Text(this NvgContext ctx, float x, float y, string str, IntPtr end) =>
+    public static float Text(this NvgContext ctx, float x, float y, [MarshalAs(UnmanagedType.LPStr)] string str, IntPtr end) =>
         _text!(ctx, x, y, str, end);
 
-    public static int CreateFont(this NvgContext ctx, string name, string filename) =>
+    public static int CreateFont(this NvgContext ctx, [MarshalAs(UnmanagedType.LPStr)] string name, [MarshalAs(UnmanagedType.LPStr)] string filename) =>
         _createFont!(ctx, name, filename);
 
-    public static void FontFace(this NvgContext ctx, string font) => _fontFace!(ctx, font);
+    public static void FontFace(this NvgContext ctx, [MarshalAs(UnmanagedType.LPStr)] string font) => _fontFace!(ctx, font);
 
     public static void BeginFrame(this NvgContext ctx, float windowWidth, float windowHeight, float devicePixelRatio) =>
         _beginFrame!(ctx, windowWidth, windowHeight, devicePixelRatio);
@@ -209,10 +209,10 @@ public unsafe partial class Nvg
 
 //public static int CreateFont(this NvgContext ctx, string name, string filename) => _createFontByteArray!(ctx, name, filename);
 
-    public static int CreateFontMem(this NvgContext ctx, string name, IntPtr data, int nData, int freeData) =>
+    public static int CreateFontMem(this NvgContext ctx, [MarshalAs(UnmanagedType.LPStr)] string name, IntPtr data, int nData, int freeData) =>
         _createFontMem!(ctx, name, data, nData, freeData);
 
-    public static int FindFont(this NvgContext ctx, string name) => _findFont!(ctx, name);
+    public static int FindFont(this NvgContext ctx, [MarshalAs(UnmanagedType.LPStr)] string name) => _findFont!(ctx, name);
 
     public static int AddFallbackFontId(this NvgContext ctx, int baseFont, int fallbackFont) =>
         _addFallbackFontId!(ctx, baseFont, fallbackFont);
@@ -244,7 +244,7 @@ public unsafe partial class Nvg
         _textBox!(ctx, x, y, breakRowWidth, str, end);
 
     public static float
-        TextBounds(this NvgContext ctx, float x, float y, string str, IntPtr end, [Out] float[] bounds) =>
+        TextBounds(this NvgContext ctx, float x, float y, [MarshalAs(UnmanagedType.LPStr)] string str, IntPtr end, [Out] float[] bounds) =>
         _textBoundsString!(ctx, x, y, str, end, bounds);
 
     public static float
@@ -271,7 +271,7 @@ public unsafe partial class Nvg
         [Out] NVGglyphPosition[] positions, int maxPositions) =>
         _textGlyphPositionsIntPtr!(ctx, x, y, str, end, positions, maxPositions);
 
-    public static int CreateImage(this NvgContext ctx, string filename, int imageFlags) =>
+    public static int CreateImage(this NvgContext ctx, [MarshalAs(UnmanagedType.LPStr)] string filename, int imageFlags) =>
         _createImageString!(ctx, filename, imageFlags);
 
     public static void TextBoxBounds(this NvgContext ctx, float x, float y, float breakRowWidth, IntPtr str,
@@ -282,7 +282,7 @@ public unsafe partial class Nvg
         IntPtr endOfStr, ref Vector4 bounds) =>
         _textBoxBoundsVector4!(ctx, x, y, breakRowWidth, str, endOfStr, ref bounds);
 
-    public static void TextBoxBounds(this NvgContext ctx, float x, float y, float breakRowWidth, string str,
+    public static void TextBoxBounds(this NvgContext ctx, float x, float y, float breakRowWidth, [MarshalAs(UnmanagedType.LPStr)] string str,
         IntPtr endOfStr, ref Vector4 bounds) =>
         _textBoxBoundsString!(ctx, x, y, breakRowWidth, str, endOfStr, ref bounds);
     
